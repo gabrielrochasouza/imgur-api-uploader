@@ -1,7 +1,8 @@
 const express = require("express");
 const fileUpload = require("express-fileupload");
-const { createReadStream } = require("fs");
+const { createReadStream, fs } = require("fs");
 const { ImgurClient } = require("imgur");
+const cors = require("cors")
 
 require("dotenv").config();
 
@@ -14,6 +15,7 @@ const client = new ImgurClient({
   clientSecret: process.env.CLIENT_SECRET,
 });
 app.use(fileUpload());
+app.use(cors())
 app.use(express.json());
 
 
