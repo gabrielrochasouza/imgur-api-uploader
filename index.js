@@ -26,7 +26,7 @@ app.post("/upload/", async (req, res) => {
       return res.status(400).json({ message: "No files were uploaded" });
   
     let sampleFile = req.files.sampleFile;
-    let uploadPath = __dirname + "/upload/" + sampleFile.name;
+    let uploadPath = "./upload/" + sampleFile.name;
     sampleFile.mv(uploadPath, (err) => {
       if (err) return res.status(500).json({ message: err });
     });
